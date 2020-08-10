@@ -8,6 +8,11 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_GET["error"])) {
+        echo $_GET["error"];
+    }
+    ?>>
     Change your password
     <form action="changePassword_handler.php" method="POST">
         <label for="oldPassword">Old Password :</label>
