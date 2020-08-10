@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <form action="registration_handler.php" method="POST">
+    <form action="login_handler.php" method="POST">
 
         <table>
-            Registration
+            Login
             <tr>
                 <td>
                     <label for="id"> USER ID :</label>

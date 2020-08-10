@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        header('location: registration.php?error=sqlError');
         exit();
     }
 
