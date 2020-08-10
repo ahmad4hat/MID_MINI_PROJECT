@@ -13,14 +13,14 @@ $result = mysqli_query($con, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
 
-    echo '<>' . $row['id'] . '</td>';
+    echo '<h2> ID = ' . $row['id'] . '</h2>';
     // echo '<td>' . $row['password'] . '</td>';
-    echo '<td>' . $row['name'] . '</td>';
-    echo '<td>' . $row['email'] . '</td>';
-    echo '<td>' . $row['userType'] . '</td>';
+    echo '<h2> Name =' . $row['name'] . '</h2>';
+    echo '<h2> Email =' . $row['email'] . '</h2>';
+    echo '<h2> User Type=' . $row['userType'] . '</h2>';
 
 
-    echo '</tr>';
+    echo '</br>';
 }
 
 
