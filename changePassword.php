@@ -9,13 +9,17 @@
 
 <body>
     Change your password
-    <form action="changePassword_handler" method="POST">
-        <label for="oldPassword"> new Old Password :</label>
+    <form action="changePassword_handler.php" method="POST">
+        <label for="oldPassword">Old Password :</label>
         <input type="password" name="oldPassword" id="oldPassword">
-        <label for="password"> new Password :</label>
+        <label for="password"> New Password :</label>
         <input type="password" name="password" id="password">
-        <label for="confirmPassword">confirmPassword :</label>
+        <label for="confirmPassword">Confirm Password :</label>
         <input type="password" name="confirmPassword" id="confirmPassword">
+        <br>
+        <br>
+        <input type="submit" value="submit" name="submit">
+        <a href="homePage.php">Go Home</a>
     </form>
 </body>
 

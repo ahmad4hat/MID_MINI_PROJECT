@@ -19,6 +19,9 @@ if (isset($_POST['submit'])) {
 
         if (count($row) > 0) {
             $_SESSION['status'] = "OK";
+            setcookie('status', "OK", time() + 3600, '/');
+            setcookie('userType', $row['userType'], time() + 3600, '/');
+            setCookie('id', trim($row['id']), time() + 3600, '/');
             header('location: homePage.php');
         } else {
             header('location: login.php?error=invalid_username/password');

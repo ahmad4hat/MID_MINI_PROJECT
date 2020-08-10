@@ -1,57 +1,49 @@
-<?php 
-    
-    if(!isset($_COOKIE['status'])){
-        header('location: registration.php?error=youAreNotLoggedIn');
-    }
+<?php
+
+if (!isset($_COOKIE['status'])) {
+    header('location: registration.php?error=youAreNotLoggedIn');
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
 </head>
+
 <body>
-    
-    <?php 
 
-        $name ="";
-        $userType="";
-        $file = fopen("data.txt","r");
+    <?php
+    $id = $_COOKIE['id'];
+    $con = mysqli_connect('localhost:3306', 'root', '', 'test');
+    $sql = "select * from users where id='" . $id . "'";
 
-        while(! feof($file))
-        {
-            
-           
-            // echo '<tr>';
-            $data = explode("|",fgets($file));
-            
-            // if ( empty($data[0]) ){
-            //     echo $data . "<br/>";
-            // }
+    $result = mysqli_query($con, $sql);
 
-            if(!empty($data[0])){
-                if($data[0]==$_COOKIE['id']){
-                    global $name;
-                    global $userType;
-                    $name=$data[2];
-                    $userType=$data[4];    
-                }
-            }
-            
+    $row = mysqli_fetch_assoc($result);
 
-            // echo '</tr>';
-           
-        }
-    
-        fclose($file);
-    
+
+
+
     ?>
-    <h1>Welcome <?php echo $name?></h1>
-    
-    
+    <h1>Welcome <?php echo  $row['name'] ?></h1>
 
-    
+    <a href="changePassword.php">Change Password</a>
+    <br>
+    <?php if ($row['userType'] === 'admin') {
+        echo ' <a href="users.php">users</a>';
+        echo '<br>';
+    } ?>
+
+    <a href="profile.php">Profile</a>
+
+
+
+
+
 </body>
+
 </html>
