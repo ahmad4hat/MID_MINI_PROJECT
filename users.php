@@ -20,7 +20,7 @@
 
 
             <?php
-            $file = fopen("data.txt", "r");
+            //$file = fopen("data.txt", "r");
 
             $con = mysqli_connect('localhost:3306', 'root', '', 'test');
             $sql = "select * from users ";
